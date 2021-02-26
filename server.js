@@ -26,3 +26,10 @@ app.post('/api/notes', (req,res) => {
   fs.writeFileSync('./db/db.json', JSON.stringify(dbData));
   res.end();
 });
+// fetch existing DB
+app.get('/api/notes', (req,res) => {
+  console.log('API REQUEST: fetch existing notes data');
+  const dbData = JSON.parse(fs.readFileSync('./db/db.json'));
+  res.send(dbData);
+});
+
