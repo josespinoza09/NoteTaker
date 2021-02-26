@@ -33,3 +33,12 @@ app.get('/api/notes', (req,res) => {
   res.send(dbData);
 });
 
+// handle html page requests
+app.get('/:page', (req, res) => {
+ res.sendFile(__dirname + '/public/notes.html');
+});
+
+// open server
+app.listen(PORT, () => {
+  console.log(`Opened server at localhost:${PORT}`);
+});
